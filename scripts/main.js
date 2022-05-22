@@ -32,10 +32,22 @@ const updateItem = (index, item) => {
 }
 
 //Delete
-const deleteItem = (index, item) => {
-    const dbClient = readItem()
-    dbClient.splice(index, 1)
-    setLocalStorage(dbClient)
+const deleteItem = (index) => {
+    const dbItem = readItem();
+    dbItem.splice(index, 1);
+    setLocalStorage(dbItem);
+}
+
+const deleteAllItems = (item) => {
+    const response = confirm(`Tem certeza que deseja excluir todos os itens da tabela?`)
+    if (response) {
+        const dbItem = readItem()
+        dbItem.splice(0, dbItem.length);
+        setLocalStorage(dbItem);
+        updateTable();
+    }
+
+
 }
 
 /*Interações com o layout*/
@@ -132,7 +144,7 @@ const editDelete = (event) => {
         }
         else if (action == 'delete') {
             const item = readItem()[index]
-            const response = confirm(`Tem certeza que deseja excluir o item ${item.item}`)
+            const response = confirm(`Tem certeza que deseja excluir o item ${item.item}?`)
             if (response) {
                 deleteItem(index);
                 updateTable();
@@ -148,6 +160,9 @@ updateTable();
 //Eventos a serem executados
 document.getElementById('add-item')
     .addEventListener('click', openModal)
+
+document.getElementById('delete-all')
+    .addEventListener('click', deleteAllItems)
 
 document.getElementById('modalClose')
     .addEventListener('click', closeModal)

@@ -49,7 +49,7 @@ body {
 
 .list-header button {
   padding: 18px 36px;
-  border: 2px solid #4f0147;
+  border: 2px solid #17c700;
   border-radius: 0px;
   display: inline-block;
   font-size: 16px;
@@ -62,7 +62,15 @@ body {
 }
 
 .list-header button:hover {
-    box-shadow: inset 0 100px 0 0 #4f0147;
+    box-shadow: inset 0 100px 0 0 #17c700;
+}
+
+#delete-all {
+  border: 2px solid #ff0000;
+}
+
+#delete-all:hover {
+  box-shadow: inset 0 100px 0 0 #ff0000;
 }
 
 .items {
