@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/modal.css" />
+    <link rel="stylesheet" href="./assets/css/body.css" />
     <title>Lista de compras</title>
   </head>
   <body>
@@ -19,12 +20,18 @@
       <div class="list-header">
         <h1>Lista de compras</h1>
         <div class="buttons">
-        <button type="button" id="add-item">Adicionar item</button>
-        <button type="button" id="delete-all">Excluir tudo</button>
+          <button type="button" id="add-item">Adicionar item</button>
+          <button type="button" id="delete-all">Excluir tudo</button>
         </div>
       </div>
       <div class="items">
-        <table class="list-items" id="items-table" cellpadding="0" cellspacing="0" border="0">
+        <table
+          class="list-items"
+          id="items-table"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+        >
           <thead>
             <tr>
               <th>Nome do comprador</th>
@@ -35,28 +42,51 @@
             </tr>
           </thead>
           <div class="table-content">
-            <tbody>
-
-            </tbody>
+            <tbody></tbody>
           </div>
         </table>
       </div>
       <div class="modal" id="modal">
         <div class="modal-content">
-            <header class="modal-header">
-                <h2 id="modal-title">Adicionar item</h2>
-                <span class="modal-close" id="modalClose">&#10006;</span>
-            </header>
-            <form class="modal-form" id="modal-form">
-                <input type="text" class="modal-field" id="nome" data-index="new" placeholder="Nome do comprador" required>
-                <input type="email" class="modal-field" id="email" placeholder="e-mail do comprador" required>
-                <input type="text" class="modal-field" id="nome-item" placeholder="nome do Item" required>
-                <input type="number" class="modal-field" id="qtd-item" placeholder="Quantidade" required>
-            </form>
-            <footer class="modal-footer">
-                <button class="button green" id="save-btn">Salvar</button>
-                <button class="button blue" id="cancel-btn">Cancelar</button>
-            </footer>
+          <header class="modal-header">
+            <h2 id="modal-title">Adicionar item</h2>
+            <span class="modal-close" id="modalClose">&#10006;</span>
+          </header>
+          <form class="modal-form" id="modal-form">
+            <input
+              type="text"
+              class="modal-field"
+              id="nome"
+              data-index="new"
+              placeholder="Nome do comprador"
+              required
+            />
+            <input
+              type="email"
+              class="modal-field"
+              id="email"
+              placeholder="e-mail do comprador"
+              required
+            />
+            <input
+              type="text"
+              class="modal-field"
+              id="nome-item"
+              placeholder="nome do Item"
+              required
+            />
+            <input
+              type="number"
+              class="modal-field"
+              id="qtd-item"
+              placeholder="Quantidade"
+              required
+            />
+          </form>
+          <footer class="modal-footer">
+            <button class="button green" id="save-btn">Salvar</button>
+            <button class="button blue" id="cancel-btn">Cancelar</button>
+          </footer>
         </div>
       </div>
     </main>

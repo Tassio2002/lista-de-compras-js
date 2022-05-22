@@ -1,32 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-
-html,
-body {
-  height: 100%;
-  overflow: hidden;
-  background-color: #11001c;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.body-image {
-  width: 100vw;
-  height: 35vh;
-  background-image: url(../img/body-img.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
 .list-container {
   width: 95vw;
   padding: 2em;
@@ -62,7 +33,7 @@ body {
 }
 
 .list-header button:hover {
-    box-shadow: inset 0 100px 0 0 #17c700;
+  box-shadow: inset 0 100px 0 0 #17c700;
 }
 
 #delete-all {
@@ -74,50 +45,49 @@ body {
 }
 
 .items {
-    width: 100%;
-    height: 500px;
-    overflow: auto;
+  width: 100%;
+  height: 500px;
+  overflow: auto;
 }
 
 .items table {
-    width: 100%;
-    border-collapse:separate; 
-    text-align: center;
-    table-layout: fixed;
+  width: 100%;
+  border-collapse: separate;
+  text-align: center;
+  table-layout: fixed;
 }
 
 .items table thead {
-    overflow-x:auto;
-    margin-top: 0px;
-    border: 1px solid rgba(255,255,255,0.3);
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.items table thead tr th{
-    padding: 1em 0;
+.items table thead tr th {
+  padding: 1em 0;
 }
-
 
 .items table tbody {
-    background-color: #11001C;
+  background-color: #11001c;
 }
 
 .items table tbody tr td {
-    padding: 1em 0;
+  padding: 1em 0;
 }
 
 .edit-btn {
-    padding: 0.5em;
-    border: none;
-    border-left: 2px solid #0000b9;
-    border-bottom: 2px solid #0000b9;
-    border-radius: 0.3em;
-    margin-right: 1em;
-    font-size: 16px;
-    font-weight: 500;
-    color: white;
-    background-color: #11001C;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+  padding: 0.5em;
+  border: none;
+  border-left: 2px solid #0000b9;
+  border-bottom: 2px solid #0000b9;
+  border-radius: 0.3em;
+  margin-right: 1em;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background-color: #11001c;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
 }
 
 .edit-btn:hover {
@@ -134,7 +104,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   color: white;
-  background-color: #11001C;
+  background-color: #11001c;
   cursor: pointer;
   transition: background 0.3s ease-in-out;
 }
@@ -142,5 +112,3 @@ body {
 .delete-btn:hover {
   background: #c40101;
 }
-
-

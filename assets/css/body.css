@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #11001c;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-image {
+  width: 100vw;
+  height: 35vh;
+  background-image: url(../img/body-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

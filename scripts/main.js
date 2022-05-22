@@ -41,7 +41,7 @@ const deleteItem = (index) => {
 const deleteAllItems = (item) => {
     const response = confirm(`Tem certeza que deseja excluir todos os itens da tabela?`)
     if (response) {
-        const dbItem = readItem()
+        const dbItem = readItem();
         dbItem.splice(0, dbItem.length);
         setLocalStorage(dbItem);
         updateTable();
@@ -56,9 +56,9 @@ const deleteAllItems = (item) => {
 const isValidFields = () => {
     const formValidity = document.querySelector('#modal-form').reportValidity();
     if (formValidity == true) {
-        return true
+        return true;
     } else {
-        return false
+        return false;
     }
 }
 
@@ -93,7 +93,7 @@ const saveItem = () => {
 
 //Atualiza a tabela
 const createRow = (item, index) => {
-    const newRow = document.createElement('tr')
+    const newRow = document.createElement('tr');
     newRow.innerHTML = `
     <td>${item.nome}</td>
     <td>${item.email}</td>
@@ -104,18 +104,18 @@ const createRow = (item, index) => {
         <button type="button" id="delete-${index}" class="delete-btn">Excluir</button>
     </td>
     `
-    document.querySelector('#items-table > tbody').appendChild(newRow)
+    document.querySelector('#items-table > tbody').appendChild(newRow);
 }
 
 const clearTable = () => {
     const rows = document.querySelectorAll('#items-table > tbody > tr');
-    rows.forEach(row => row.parentNode.removeChild(row))
+    rows.forEach(row => row.parentNode.removeChild(row));
 }
 
 const updateTable = () => {
     const dbItem = readItem();
     clearTable();
-    dbItem.forEach(createRow)
+    dbItem.forEach(createRow);
 }
 
 const fillFields = (item) => {
@@ -137,14 +137,14 @@ const editItem = (index) => {
 
 const editDelete = (event) => {
     if (event.target.type == 'button') {
-        const [action, index] = event.target.id.split('-')
+        const [action, index] = event.target.id.split('-');
 
         if (action == 'edit') {
             editItem(index);
         }
         else if (action == 'delete') {
-            const item = readItem()[index]
-            const response = confirm(`Tem certeza que deseja excluir o item ${item.item}?`)
+            const item = readItem()[index];
+            const response = confirm(`Tem certeza que deseja excluir o item ${item.item}?`);
             if (response) {
                 deleteItem(index);
                 updateTable();
@@ -159,16 +159,16 @@ updateTable();
 
 //Eventos a serem executados
 document.getElementById('add-item')
-    .addEventListener('click', openModal)
+    .addEventListener('click', openModal);
 
 document.getElementById('delete-all')
-    .addEventListener('click', deleteAllItems)
+    .addEventListener('click', deleteAllItems);
 
 document.getElementById('modalClose')
-    .addEventListener('click', closeModal)
+    .addEventListener('click', closeModal);
 
 document.getElementById('save-btn')
-    .addEventListener('click', saveItem)
+    .addEventListener('click', saveItem);
 
 document.querySelector('#items-table > tbody')
-    .addEventListener('click', editDelete)
+    .addEventListener('click', editDelete);
