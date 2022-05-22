@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #11001c;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.body-image {
+  width: 100vw;
+  height: 35vh;
+  background-image: url(../img/body-img.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.list-container {
+  width: 95vw;
+  padding: 2em;
+  border-radius: 0.8em;
+  position: absolute;
+  top: 10%;
+  background-color: #3a015c;
+  color: #fff;
+}
+
+.list-header {
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: 2px #4f0147 solid;
+  margin-bottom: 2.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header button {
+  padding: 18px 36px;
+  border: 2px solid #4f0147;
+  border-radius: 0px;
+  display: inline-block;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow: inset 0 0 0 0 #4f0147;
+  transition: ease-out 0.4s;
+  color: #fff;
+  background-color: #3a015c;
+  cursor: pointer;
+}
+
+.list-header button:hover {
+    box-shadow: inset 0 100px 0 0 #4f0147;
+}
+
+.items {
+    width: 100%;
+}
+
+.items table {
+    width: 100%;
+    border-collapse:separate; 
+    text-align: center;
+    table-layout: fixed;
+}
+
+.items table thead {
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.items table thead tr th{
+    padding: 1em 0;
+}
+
+
+.items table tbody {
+    background-color: #11001C;
+}
+
+.items table tbody tr td {
+    padding: 1em 0;
+}
+
+
+
