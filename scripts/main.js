@@ -5,6 +5,7 @@ const openModal = () => document.getElementById('modal')
     .classList.add('active');
 
 const closeModal = () => {
+    document.querySelector('#modal-title').textContent = "Adicionar item";
     clearFields();
     document.getElementById('modal').classList.remove('active');
 }
@@ -74,7 +75,7 @@ const saveItem = () => {
             updateTable();
             closeModal();
         }
-        
+
     }
 }
 
@@ -87,8 +88,8 @@ const createRow = (item, index) => {
     <td>${item.item}</td>
     <td>${item.qtd}</td>
     <td>
-        <button type="button" id="edit-${index}">Editar</button>
-        <button type="button" id="delete-${index}">Excluir</button>
+        <button type="button" id="edit-${index}" class="edit-btn" >Editar</button>
+        <button type="button" id="delete-${index}" class="delete-btn">Excluir</button>
     </td>
     `
     document.querySelector('#items-table > tbody').appendChild(newRow)
@@ -111,31 +112,32 @@ const fillFields = (item) => {
     document.querySelector('#nome-item').value = item.item;
     document.querySelector('#qtd-item').value = item.qtd;
     document.querySelector('#nome').dataset.index = item.index;
-    
+
 }
 
 const editItem = (index) => {
     const item = readItem()[index];
     item.index = index;
     fillFields(item);
+    document.querySelector('#modal-title').textContent = "Editar item";
     openModal();
 }
 
 const editDelete = (event) => {
-    if(event.target.type == 'button') {
+    if (event.target.type == 'button') {
         const [action, index] = event.target.id.split('-')
 
         if (action == 'edit') {
             editItem(index);
-        } 
+        }
         else if (action == 'delete') {
             const item = readItem()[index]
             const response = confirm(`Tem certeza que deseja excluir o item ${item.item}`)
-            if(response) {
+            if (response) {
                 deleteItem(index);
                 updateTable();
             }
-            
+
         }
     }
 

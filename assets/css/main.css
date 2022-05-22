@@ -67,6 +67,8 @@ body {
 
 .items {
     width: 100%;
+    height: 500px;
+    overflow: auto;
 }
 
 .items table {
@@ -95,5 +97,42 @@ body {
     padding: 1em 0;
 }
 
+.edit-btn {
+    padding: 0.5em;
+    border: none;
+    border-left: 2px solid #0000b9;
+    border-bottom: 2px solid #0000b9;
+    border-radius: 0.3em;
+    margin-right: 1em;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    background-color: #11001C;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.edit-btn:hover {
+  background: #0000b9;
+}
+
+.delete-btn {
+  padding: 0.5em;
+  border: none;
+  border-left: 2px solid #c40101;
+  border-bottom: 2px solid #c40101;
+  border-radius: 0.3em;
+  margin-right: 1em;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  background-color: #11001C;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+  background: #c40101;
+}
 
 
