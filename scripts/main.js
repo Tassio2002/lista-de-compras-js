@@ -10,6 +10,7 @@ const closeModal = () => {
     document.getElementById('modal').classList.remove('active');
 }
 
+//conexão com o banco de dados local do navegador
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db_item')) ?? [];
 const setLocalStorage = (dbItem) => localStorage.setItem("db_item", JSON.stringify(dbItem));
 
@@ -46,8 +47,6 @@ const deleteAllItems = (item) => {
         setLocalStorage(dbItem);
         updateTable();
     }
-
-
 }
 
 /*Interações com o layout*/
@@ -72,12 +71,10 @@ const clearFields = () => {
 const saveItem = () => {
     if (isValidFields() == true) {
         const item = {
-            nome: document.querySelector('#nome').value,
-            email: document.querySelector('#email').value,
             item: document.querySelector('#nome-item').value,
             qtd: document.querySelector('#qtd-item').value
         }
-        const index = document.getElementById('nome').dataset.index;
+        const index = document.getElementById('nome-item').dataset.index;
         if (index == 'new') {
             createItem(item);
             updateTable();
@@ -87,24 +84,31 @@ const saveItem = () => {
             updateTable();
             closeModal();
         }
-
     }
 }
 
 //Atualiza a tabela
 const createRow = (item, index) => {
-    const newRow = document.createElement('tr');
-    newRow.innerHTML = `
-    <td>${item.nome}</td>
-    <td>${item.email}</td>
-    <td>${item.item}</td>
-    <td>${item.qtd}</td>
-    <td>
-        <button type="button" id="edit-${index}" class="edit-btn" >Editar</button>
-        <button type="button" id="delete-${index}" class="delete-btn">Excluir</button>
-    </td>
-    `
-    document.querySelector('#items-table > tbody').appendChild(newRow);
+    fetch(`https://randomuser.me/api/?inc=name,email`).then(response => {
+        return response.json()
+    }).then(body => {
+        let nameOwner = `${body.results[0].name.first} ${body.results[0].name.last}`
+        let emailOwner = body.results[0].email
+
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${nameOwner}</td>
+            <td>${emailOwner}</td>
+            <td>${item.item}</td>
+            <td>${item.qtd}</td>
+            <td>
+                <button type="button" id="edit-${index}" class="edit-btn" >Editar</button>
+                <button type="button" id="delete-${index}" class="delete-btn">Excluir</button>
+            </td>
+        `
+        document.querySelector('#items-table > tbody').appendChild(newRow);
+    })
+
 }
 
 const clearTable = () => {
@@ -119,12 +123,9 @@ const updateTable = () => {
 }
 
 const fillFields = (item) => {
-    document.querySelector('#nome').value = item.nome;
-    document.querySelector('#email').value = item.email;
     document.querySelector('#nome-item').value = item.item;
     document.querySelector('#qtd-item').value = item.qtd;
-    document.querySelector('#nome').dataset.index = item.index;
-
+    document.querySelector('#nome-item').dataset.index = item.index;
 }
 
 const editItem = (index) => {
